@@ -2,7 +2,7 @@
 class KTexts {
 
   /// app name
-  static const String appName = "Turfs";
+  static const String appName = "Turf Booking App";
   //Global texts
 
   // onboarding Text
