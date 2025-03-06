@@ -77,29 +77,39 @@ class ClientLoginTab extends StatelessWidget {
             ],
           ),
 
-          /// button
+          /// sign in button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () => ctrl.clientEmailAndPasswordSignIn(),
-                child: const Text(
-                  KTexts.signIn,
-                  style: TextStyle(fontSize: 20),
-                )),
+              onPressed: () => ctrl.clientEmailAndPasswordSignIn(),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue, // Replace green with blue
+                foregroundColor: Colors.white, // Text/icon color
+              ),
+              child: const Text(
+                KTexts.signIn,
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
           ),
           const SizedBox(
             height: KSizes.spaceBtwInputFields / 8,
           ),
 
-          /// create account
+          /// create account button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () => Get.to(() => const ClientSignupScreen()),
-                child: const Text(
-                  KTexts.createAccount,
-                  style: TextStyle(fontSize: 20),
-                )),
+              onPressed: () => Get.to(() => const ClientSignupScreen()),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue, // Replace green with blue
+                foregroundColor: Colors.white, // Text/icon color
+              ),
+              child: const Text(
+                KTexts.createAccount,
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
           ),
         ],
       ),

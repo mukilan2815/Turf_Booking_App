@@ -42,7 +42,7 @@ class KOrdersListItems extends StatelessWidget {
           separatorBuilder: (_, __) => const SizedBox(height: KSizes.spaceBtwItems),
           itemBuilder: (_, index) {
             final order = orders[index];
-            final isCancellable = order.status == 'confirmed'; // Cancel button only for 'confirmed'
+            final isCancellable = order.status == 'confirmed';
 
             return KRoundedContainer(
               showBorder: true,
@@ -152,6 +152,7 @@ class KOrdersListItems extends StatelessWidget {
               try {
                 await ctrl.cancelOrder(orderId);
                 Navigator.pop(context);
+                // No additional snackbar here; handled in cancelOrder
               } catch (e) {
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(

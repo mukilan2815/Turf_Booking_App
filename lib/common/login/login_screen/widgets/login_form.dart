@@ -6,7 +6,6 @@ import '../../../../../utils/helpers/helper_functions.dart';
 import 'card_user/admin_login_tab.dart';
 import 'card_user/client_login_tab.dart';
 
-
 class KLoginForm extends StatefulWidget {
   const KLoginForm({super.key});
 
@@ -16,7 +15,6 @@ class KLoginForm extends StatefulWidget {
 
 class LoginFormState extends State<KLoginForm>
     with SingleTickerProviderStateMixin {
-
   late TabController _tabController;
 
   @override
@@ -30,50 +28,51 @@ class LoginFormState extends State<KLoginForm>
     _tabController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-
     final dark = KHelperFunctions.isDarkMode(context);
 
     return Card(
-      color: dark ? KColors.dark : KColors.white ,
+      color: dark ? KColors.dark : KColors.white,
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16),),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Container(
         padding: const EdgeInsets.all(8),
         child: Column(
-          mainAxisSize: MainAxisSize.max,mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TabBar(
               controller: _tabController,
-              indicatorColor: dark ? KColors.white : KColors.dark ,
+              indicatorColor: dark ? KColors.white : KColors.dark,
               indicatorSize: TabBarIndicatorSize.tab,
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: KColors.primary ,
+                color: Colors.blue, // Changed from KColors.primary (assumed green) to blue
               ),
-              labelColor: dark ? KColors.dark : KColors.light ,
+              labelColor: dark ? KColors.dark : KColors.light,
               labelStyle: Theme.of(context).textTheme.headlineSmall,
               unselectedLabelColor: dark ? KColors.light : KColors.dark,
               dividerHeight: 0,
               tabs: const [
                 Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 2,vertical: 5),
-                    child: Tab(text: 'Client Login',)
+                  padding: EdgeInsets.symmetric(horizontal: 2, vertical: 5),
+                  child: Tab(text: 'Client Login'),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 2,vertical: 5),
+                  padding: EdgeInsets.symmetric(horizontal: 2, vertical: 5),
                   child: Tab(text: 'Admin Login'),
                 ),
               ],
             ),
-            const SizedBox(height: KSizes.sm,),
+            const SizedBox(height: KSizes.sm),
             SizedBox(
-              height: KDeviceUtils.getScreenHeight() /2.8,
+              height: KDeviceUtils.getScreenHeight() / 2.8,
               width: KDeviceUtils.getScreenWidth(context) / 1,
               child: TabBarView(
                 controller: _tabController,
-                children: const [ClientLoginTab(), AdminLoginTab(),],
+                children: const [ClientLoginTab(), AdminLoginTab()],
               ),
             ),
           ],

@@ -56,7 +56,7 @@ class AdminLoginTab extends StatelessWidget {
             height: KSizes.spaceBtwInputFields / 8,
           ),
 
-          ///remember me
+          /// remember me
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -77,29 +77,39 @@ class AdminLoginTab extends StatelessWidget {
             ],
           ),
 
-          /// button
+          /// sign in button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () => ctrl.adminEmailAndPasswordSignIn(),
-                child: const Text(
-                  KTexts.signIn,
-                  style: TextStyle(fontSize: 20),
-                )),
+              onPressed: () => ctrl.adminEmailAndPasswordSignIn(),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue, // Replace green with blue
+                foregroundColor: Colors.white, // Text/icon color
+              ),
+              child: const Text(
+                KTexts.signIn,
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
           ),
           const SizedBox(
             height: KSizes.spaceBtwInputFields / 8,
           ),
 
-          /// create account
+          /// create account button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () => Get.to(() => const AdminSignupScreen()),
-                child: const Text(
-                  KTexts.createAccount,
-                  style: TextStyle(fontSize: 20),
-                )),
+              onPressed: () => Get.to(() => const AdminSignupScreen()),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue, // Replace green with blue
+                foregroundColor: Colors.white, // Text/icon color
+              ),
+              child: const Text(
+                KTexts.createAccount,
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
           ),
         ],
       ),

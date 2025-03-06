@@ -1,3 +1,4 @@
+// lib/user_client/c_features/user_client/controllers/c_order_ctrl.dart
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/success_screen/success_screen.dart';
@@ -72,11 +73,12 @@ class ClientOrderController extends GetxController {
       await clientOrderRepository.clientCancelOrder(orderId, userId);
 
       KFullScreenLoader.stopLoading();
+      // Show notification after cancellation
       KLoaders.successSnackBar(
-        title: 'Booking Cancelled',
-        message: 'Your booking #$orderId has been successfully cancelled.',
+        title: 'Order Cancelled',
+        message: 'Order #$orderId has been cancelled.',
       );
-      update();
+      update(); // Refresh UI
     } catch (e) {
       KFullScreenLoader.stopLoading();
       KLoaders.errorSnackBar(title: 'Cancellation Failed', message: e.toString());
